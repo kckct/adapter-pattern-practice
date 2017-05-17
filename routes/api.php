@@ -16,3 +16,7 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('index', 'CloudStorageController@index');
+Route::get('store', 'CloudStorageController@store');
+Route::get('destroy', 'CloudStorageController@destroy');
