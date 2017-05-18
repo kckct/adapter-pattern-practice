@@ -1,8 +1,6 @@
 <?php
 namespace App\Services;
 
-use App\SDK\AWSSDK;
-
 /**
  * Class CloudStorageService
  * @package App\Services
@@ -10,16 +8,16 @@ use App\SDK\AWSSDK;
 class CloudStorageService
 {
     /**
-     * @var AWSSDK
+     * @var CloudSDK
      */
-    private $awsSDK;
+    private $cloudSDK;
 
     /**
      * CloudStorageService constructor.
      */
     public function __construct()
     {
-        $this->awsSDK = new AWSSDK();
+        $this->cloudSDK = CloudSDKFactory::create();
     }
 
     /**
@@ -29,7 +27,7 @@ class CloudStorageService
      */
     public function getFileUrl(string $folder, string $remoteFile)
     {
-        return $this->awsSDK->getObject($folder, $remoteFile);
+        return $this->cloudSDK->getObject($folder, $remoteFile);
     }
 
     /**
@@ -40,7 +38,7 @@ class CloudStorageService
      */
     public function uploadFile(string $folder, string $remoteFile, string $localFile)
     {
-        return $this->awsSDK->putObject($folder, $remoteFile, $localFile);
+        return $this->cloudSDK->putObject($folder, $remoteFile, $localFile);
     }
 
     /**
@@ -50,6 +48,6 @@ class CloudStorageService
      */
     public function deleteFile(string $folder, string $remoteFile)
     {
-        return $this->awsSDK->deleteObject($folder, $remoteFile);
+        return $this->cloudSDK->deleteObject($folder, $remoteFile);
     }
 }
