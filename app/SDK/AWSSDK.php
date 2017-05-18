@@ -1,11 +1,12 @@
 <?php
 namespace App\SDK;
+use App\Services\CloudSDK;
 
 /**
  * Class AWSSDK
  * @package App\SDK
  */
-class AWSSDK
+class AWSSDK implements CloudSDK
 {
     /**
      * @param string $container
