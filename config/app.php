@@ -229,7 +229,8 @@ return [
     ],
 
     'CloudLUT' => [
-        'AWS' => App\SDK\AWSSDK::class,
+        'AWS' => \App\Services\AWSAdapter::class,
+//        'Azure' => App\Services\AzureAdapter::class,
     ],
 
     'CloudStorage' => 'AWS',

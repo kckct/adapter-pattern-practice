@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Services;
 
 use App\SDK\AWSSDK;
@@ -15,11 +14,10 @@ class AWSAdapter implements CloudSDK
 
     /**
      * AWSAdapter constructor.
-     * @param AWSSDK $awsSDK
      */
-    public function __construct(AWSSDK $awsSDK)
+    public function __construct()
     {
-        $this->awsSDK = $awsSDK;
+        $this->awsSDK = new AWSSDK();
     }
 
     /**

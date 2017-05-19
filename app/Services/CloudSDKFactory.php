@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Services;
-
 
 /**
  * Class CloudSDKFactory
@@ -17,7 +15,7 @@ class CloudSDKFactory
         $lut = config('app.CloudLUT');
         $cloudStorage = config('app.CloudStorage');
 
-        $className = collect($lut)->get($cloudStorage);
-        return new $className;
+        $className = collect($lut)->get($cloudStorage, AWSAdapter::class);
+        return new $className();
     }
 }
