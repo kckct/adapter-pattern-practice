@@ -228,4 +228,10 @@ return [
 
     ],
 
+    'CloudLUT' => [
+        'AWS' => App\SDK\AWSSDK::class,
+    ],
+
+    'CloudStorage' => 'AWS',
+
 ];

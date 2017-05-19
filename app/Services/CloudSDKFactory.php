@@ -14,6 +14,10 @@ class CloudSDKFactory
      */
     public static function create(): CloudSDK
     {
+        $lut = config('app.CloudLUT');
+        $cloudStorage = config('app.CloudStorage');
 
+        $className = collect($lut)->get($cloudStorage);
+        return new $className;
     }
 }
