@@ -230,9 +230,9 @@ return [
 
     'CloudLUT' => [
         'AWS' => \App\Services\AWSAdapter::class,
-//        'Azure' => App\Services\AzureAdapter::class,
+        'Azure' => \App\Services\AzureAdapter::class,
     ],
 
-    'CloudStorage' => 'AWS',
+    'CloudStorage' => 'Azure',
 
 ];

@@ -13,26 +13,20 @@ class CloudStorageControllerTest extends TestCase
     {
         $response = $this->json('GET', 'api/index', []);
         $response->assertStatus(200);
-        $response->assertJson([
-            'result' => 'Get AWS File'
-        ]);
+        $response->assertSeeText('Get');
     }
 
     public function test_上傳測試()
     {
         $response = $this->json('GET', 'api/store', []);
         $response->assertStatus(200);
-        $response->assertJson([
-            'result' => 'AWS S3 uploading file...'
-        ]);
+        $response->assertSeeText('uploading file...');
     }
 
     public function test_刪除測試()
     {
         $response = $this->json('GET', 'api/destroy', []);
         $response->assertStatus(200);
-        $response->assertJson([
-            'result' => 'AWS S3 deleting file...'
-        ]);
+        $response->assertSeeText('deleting file...');
     }
 }
